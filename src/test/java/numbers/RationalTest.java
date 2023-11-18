@@ -75,12 +75,93 @@ public class RationalTest
     /**
      * Test constructor when passing through two integers
      */
-    // public void test_constructor_numerator_denominator_is_zero() {
-    //     // Given that I have constructed a `Rational` value using the argument `2` and `3`
-    //     Rational value = new Rational(2, 0);
+    public void test_constructor_numerator_denominator_simplify() {
+        // Given I have created a `Rational` value using `48` and `-72`
+        Rational value = new Rational(47, 72);
 
-    //     // And the value should have denominator throw error
-    //     assertThrows()
-    // }
+        // Then the value should have numerator `-2`
+        assertThat("47 / 72 = 47 / 72", value.getNumerator(), is(47));
+
+        // And the value should have denominator `3`
+        assertThat("47 / 72 = 47 / 72", value.getDenominator(), is(72));
+    }
+
+    /**
+     * Test constructor when passing through two integers
+     */
+    public void test_constructor_numerator_denominator_simplify_neg_denom() {
+        // Given I have created a `Rational` value using `48` and `-72`
+        Rational value = new Rational(48, -72);
+
+        // Then the value should have numerator `-2`
+        assertThat("48 / -72 = -2 / 3", value.getNumerator(), is(-2));
+
+        // And the value should have denominator `3`
+        assertThat("48 / -72 = -2 / 3", value.getDenominator(), is(3));
+    }
+
+    /**
+     * Test constructor when passing through two integers
+     */
+    public void test_constructor_numerator_denominator_simplify_neg_num() {
+        // Given I have created a `Rational` value using `48` and `-72`
+        Rational value = new Rational(-48, 72);
+
+        // Then the value should have numerator `-2`
+        assertThat("-48 / 72 = -2 / 3", value.getNumerator(), is(-2));
+
+        // And the value should have denominator `3`
+        assertThat("-48 / 72 = -2 / 3", value.getDenominator(), is(3));
+    }
+
+    /**
+     * Test constructor when passing through two integers
+     */
+    public void test_constructor_numerator_denominator_simplify_larger_neg_num() {
+        // Given I have created a `Rational` value using `48` and `-72`
+        Rational value = new Rational(-144, 72);
+
+        // Then the value should have numerator `-2`
+        assertThat("-144 / 72 = -2 / 1", value.getNumerator(), is(-2));
+
+        // And the value should have denominator `3`
+        assertThat("-144 / 72 = -2 / 1", value.getDenominator(), is(1));
+    }
+
+    /**
+     * Test constructor when passing through two integers
+     */
+    public void test_constructor_numerator_denominator_simplify_equal() {
+        // Given I have created a `Rational` value using `48` and `-72`
+        Rational value = new Rational(12, 12);
+
+        // Then the value should have numerator `-2`
+        assertThat("12 / 12 = 1 / 1", value.getNumerator(), is(1));
+
+        // And the value should have denominator `3`
+        assertThat("12 / 12 = 1 / 1", value.getDenominator(), is(1));
+    }
+
+    /**
+     * Test constructor when passing through 0 for denominator
+     */
+    public void test_constructor_numerator_denominator_num_is_zero() {
+        // Given I have created a `Rational` value using `48` and `-72`
+        Rational value = new Rational(0, 72);
+
+        // Then the value should have numerator `-2`
+        assertThat("0 / 72 = 0 / 1", value.getNumerator(), is(0));
+
+        // And the value should have denominator `3`
+        assertThat("0 / 72 = 0 / 1", value.getDenominator(), is(1));
+    }
+
+    /**
+     * Test constructor when passing through 0 for denominator
+     */
+    public void test_constructor_numerator_denominator_denom_is_zero() {
+        // And the value should have denominator throw error
+        assertThrows(IllegalArgumentException.class, () -> new Rational(1, 0));
+    }
     
 }
