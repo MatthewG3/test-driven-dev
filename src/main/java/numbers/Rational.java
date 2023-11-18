@@ -37,6 +37,11 @@ public class Rational
         }
     }
 
+    public Rational(Rational obj) {
+        this.numerator = obj.numerator;
+        this.denominator = obj.denominator;
+    }
+
     private int findGCD(int a, int b) {
         // Ensure both numbers are non-negative
         a = Math.abs(a);
@@ -53,9 +58,14 @@ public class Rational
 
     public int getNumerator() {
         return numerator;
-     }
+    }
      
      public int getDenominator() {
         return denominator;
-     }
+    }
+
+    public Rational opposite() {
+        int newNumerator = -1 * this.numerator;
+        return new Rational(newNumerator, denominator);
+    }
 }

@@ -163,5 +163,42 @@ public class RationalTest
         // And the value should have denominator throw error
         assertThrows(IllegalArgumentException.class, () -> new Rational(1, 0));
     }
+
+    /**
+     * Test copy constuctor
+     */
+    public void test_copy_constructor() {
+        // Given that I have created the `Rational` value `2/3`
+        Rational original = new Rational(2, 3);
+
+        // When I create a `Rational` value as a copy of the original `Rational` value
+        Rational value = new Rational(original);
+
+        // Then the copy's value should have numerator 2
+        assertThat("the numerator should be 2", value.getNumerator(), is(2));
+
+        // And the copy's value should have denominator 3
+        assertThat("the denominator should be 3", value.getDenominator(), is(3));
+    }
+
+    /**
+     * Test for opposite when positive
+     */
+    public void test_opposite_positive() {
+        Rational value = new Rational(2, 3);
+        Rational opposite = value.opposite();
+        assertThat("the opposite of 2 is -2", opposite.getNumerator(), is(-2));
+        assertThat("the denominator should be 3", opposite.getDenominator(), is(3));
+    }
+
+    /**
+     * Test for opposite when neg
+     */
+    public void test_opposite_negative() {
+        Rational value = new Rational(-2, 3);
+        Rational opposite = value.opposite();
+        assertThat("the opposite of -2 is 2", opposite.getNumerator(), is(2));
+        assertThat("the denominator should be 3", opposite.getDenominator(), is(3));
+    }
     
 }
