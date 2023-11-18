@@ -6,11 +6,6 @@ package numbers;
  */
 public class Rational 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
-
     private int numerator;
     private int denominator;
 
@@ -19,14 +14,14 @@ public class Rational
         denominator = 1;
     }
 
-    public Rational(int val) {
-        numerator = val;
+    public Rational(int num) {
+        numerator = num;
         denominator = 1;
     }
 
-    public Rational(int val1,int val2) {
-        numerator = val1;
-        denominator = val2;
+    public Rational(int num,int denom) {
+        numerator = num;
+        denominator = denom;
     }
 
     public int getNumerator() {
