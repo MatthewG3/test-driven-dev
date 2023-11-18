@@ -228,5 +228,38 @@ public class RationalTest
         Rational value = new Rational(0);
         assertThrows(IllegalArgumentException.class, value::reciprocal);
     }
+
+    /**
+     * Test times function for two positive Rationals
+     */
+    public void test_times_both_positive() {
+        Rational p = new Rational(2, 3);
+        Rational q = new Rational(5, 7);
+        Rational result = p.times(q);
+        assertThat("2 * 5 = 10", result.getNumerator(), is(10));
+        assertThat("3 * 7 = 21", result.getDenominator(), is(21));
+    }
+
+    /**
+     * Test times function for one positive Rationals
+     */
+    public void test_times_one_negative() {
+        Rational p = new Rational(2, 3);
+        Rational q = new Rational(-5, 7);
+        Rational result = p.times(q);
+        assertThat("2 * -5 = -10", result.getNumerator(), is(-10));
+        assertThat("3 * 7 = 21", result.getDenominator(), is(21));
+    }
+
+    /**
+     * Test times function for two negative Rationals
+     */
+    public void test_times_two_negative() {
+        Rational p = new Rational(-2, 3);
+        Rational q = new Rational(-5, 7);
+        Rational result = p.times(q);
+        assertThat("-2 * -5 = 10", result.getNumerator(), is(10));
+        assertThat("3 * 7 = 21", result.getDenominator(), is(21));
+    }
     
 }

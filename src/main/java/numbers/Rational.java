@@ -74,4 +74,10 @@ public class Rational
         int newDenominator = numerator;
         return new Rational(newNumerator, newDenominator);
     }
+
+    public Rational times(Rational r) {
+        int newNumerator = this.numerator * r.numerator;
+        int newDenominator = this.denominator * r.denominator;
+        return new Rational(newNumerator, newDenominator);
+    }
 }
