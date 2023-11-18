@@ -68,4 +68,10 @@ public class Rational
         int newNumerator = -1 * this.numerator;
         return new Rational(newNumerator, denominator);
     }
+
+    public Rational reciprocal() {
+        int newNumerator = denominator;
+        int newDenominator = numerator;
+        return new Rational(newNumerator, newDenominator);
+    }
 }

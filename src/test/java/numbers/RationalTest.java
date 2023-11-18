@@ -200,5 +200,33 @@ public class RationalTest
         assertThat("the opposite of -2 is 2", opposite.getNumerator(), is(2));
         assertThat("the denominator should be 3", opposite.getDenominator(), is(3));
     }
+
+    /**
+     * Test for reciprocal
+     */
+    public void test_reciprocal_positive() {
+        Rational value = new Rational(2, 3);
+        Rational reciprocal = value.reciprocal();
+        assertThat("the numerator should be 3", reciprocal.getNumerator(), is(3));
+        assertThat("the denominator should be 2", reciprocal.getDenominator(), is(2));
+    }
+
+    /**
+     * Test for reciprocal when negative
+     */
+    public void test_reciprocal_negative() {
+        Rational value = new Rational(-2, 3);
+        Rational reciprocal = value.reciprocal();
+        assertThat("the numerator should be -3", reciprocal.getNumerator(), is(-3));
+        assertThat("the denominator should be 2", reciprocal.getDenominator(), is(2));
+    }
+
+    /**
+     * Test for when reciprocal creates a invalid value
+     */
+    public void test_reciprocal_invalid() {
+        Rational value = new Rational(0);
+        assertThrows(IllegalArgumentException.class, value::reciprocal);
+    }
     
 }
