@@ -24,6 +24,11 @@ public class Rational
         denominator = 1;
     }
 
+    public Rational(int val1,int val2) {
+        numerator = val1;
+        denominator = val2;
+    }
+
     public int getNumerator() {
         return numerator;
      }
