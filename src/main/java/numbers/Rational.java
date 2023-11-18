@@ -10,13 +10,11 @@ public class Rational
     private int denominator;
 
     public Rational() {
-        numerator = 0;
-        denominator = 1;
+        this(0, 1);
     }
 
     public Rational(int num) {
-        numerator = num;
-        denominator = 1;
+        this(num, 1);
     }
 
     public Rational(int num,int denom) {
