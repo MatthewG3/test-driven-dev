@@ -1,5 +1,8 @@
 package numbers;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -29,10 +32,28 @@ public class RationalTest
     }
 
     /**
-     * Rigourous Test :-)
+     * Test default constructor
      */
-    public void testRational()
+    public void test_defualt_constructor()
     {
-        assertTrue( true );
+        // When I create a default `Rational` value
+        Rational value = new Rational();
+        // Then the value should have numerator 0
+        assertThat("the numerator should be 0", value.getNumerator(), is(0));
+        // And the value should have denominator 1
+        assertThat("the denominator should be 1", value.getDenominator(), is(1));
     }
+
+    /**
+     * Test constructor when passing through one integer
+     */
+    public void test_constructor_int() {
+        // Given that I have constructed a `Rational` value using the argument `2`
+        Rational value = new Rational(2);
+        // Then the value should have numerator `2`
+        assertThat("the numerator should be 2", value.getNumerator(), is(2));
+        // And the value should have denominator `1`
+        assertThat("the denominator should be 1", value.getDenominator(), is(1));
+    }
+    
 }
